@@ -1,0 +1,2 @@
+# TN-adminmenu
+qbcore adminmenu
