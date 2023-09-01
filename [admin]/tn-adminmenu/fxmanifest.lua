@@ -1,10 +1,8 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Disabled Coding'
-description 'Admin menu specifically made for the QBCore framework'
-version '2.1.1'
-repository 'https://github.com/Disabled-Coding/dc-adminmenu'
+author 'DON'
+version '1.0.0'
 
 shared_scripts {
     '@qb-core/shared/locale.lua',
@@ -35,7 +33,7 @@ server_scripts {
 
 ui_page 'html/index.html'
 
-files { -- Credits to https://github.com/LVRP-BEN/bl_coords for clipboard copy method
+files {
     'html/index.html',
     'html/index.js'
 }
