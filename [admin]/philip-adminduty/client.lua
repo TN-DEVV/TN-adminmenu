@@ -56,7 +56,30 @@ RegisterNetEvent('philip-adminduty:AdminDuty', function()
         
     else
         TriggerServerEvent("philip-adminduty:setduty",0,true)
-        TriggerServerEvent("qb-clothes:loadPlayerSkin")
+        if Config.clothes == "qb-clothes" then
+            TriggerServerEvent("qb-clothes:loadPlayerSkin")
+        elseif Config.clothes == "qb-clothing" then
+            local health = GetEntityHealth(PlayerPedId())
+            local model
+            local gender = QBCore.Functions.GetPlayerData().charinfo.gender
+            local maxhealth = GetEntityMaxHealth(PlayerPedId())
+            if gender == 1 then -- Gender is ONE for FEMALE
+                model = GetHashKey("mp_f_freemode_01") -- Female Model
+            else
+                model = GetHashKey("mp_m_freemode_01") -- Male Model
+            end
+            RequestModel(model)
+            SetPlayerModel(PlayerId(), model)
+            SetModelAsNoLongerNeeded(model)
+            Citizen.Wait(1000) -- Safety Delay
+            TriggerServerEvent("qb-clothes:loadPlayerSkin") -- LOADING PLAYER'S CLOTHES
+            TriggerServerEvent("qb-clothing:loadPlayerSkin") -- LOADING PLAYER'S CLOTHES - Event 2
+            SetPedMaxHealth(PlayerId(), maxhealth)
+            Citizen.Wait(1000) -- Safety Delay
+            SetEntityHealth(PlayerPedId(), health)
+        elseif Config.clothes == "illenium-appearance" then
+            TriggerEvent("illenium-appearance:client:reloadSkin")
+        end
         QBCore.Functions.Notify(Lang[Config.Lang].dutyOff, 'primary', 2500)
         Citizen.Wait(1000) 
         QBCore.Functions.TriggerCallback('SmallTattoos:GetPlayerTattoos', function(tattooList)
