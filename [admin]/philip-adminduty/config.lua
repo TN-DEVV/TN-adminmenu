@@ -7,6 +7,7 @@ Config = {
     LogoSpin = false, -- Change this to false if you don't want the logo to spin and change true if you want the logo to spin.
     LogoMovingWithCamera = true, -- Change this to false if you don't want the logo to look always the player camera direction and change true if you want the logo to look always the player camera direction.
     LogoBouncing = false -- Change this to false if you don't want the logo to be bouncing and change true if you want the logo to be bouncing.
+    clothes = "qb-clothing"
     -- NOTE: You can't use LogoSpin and LogoMovingWithCamera at the same time. It's not gonna work!
 
 }
