@@ -6,3 +6,6 @@ CREATE TABLE IF NOT EXISTS `adminmenu` (
   `permission` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
+
+ALTER TABLE players
+ADD COLUMN adminduty INT DEFAULT 0;
