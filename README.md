@@ -27,6 +27,9 @@ An improved version of qb-adminmenu. With better logic and more features.
 
 # Preview
 https://www.youtube.com/watch?v=--9cwjT8btc&t=1s
+
+# Discord 
+https://discord.gg/AWrykAeXye
 # Dependencies
 
 Makes usage of
