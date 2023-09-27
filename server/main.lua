@@ -579,24 +579,3 @@ QBCore.Functions.CreateCallback('qb-adminmenu:callback:getplayer', function(sour
     }
     cb(player)
 end)
-
-CreateThread(function()
-    local path = GetResourcePath(SoundScriptName)
-    local directory = path:gsub('//', '/')..SoundPath
-    if not Linux then
-        for filename in io.popen('dir "'..directory..'" /b'):lines() do
-            Sounds[#Sounds + 1] = filename:match("(.+)%..+$")
-        end
-    else
-        for filename in io.popen('ls "'..directory..'" /b'):lines() do
-            Sounds[#Sounds + 1] = filename:match("(.+)%..+$")
-        end
-    end
-    PerformHttpRequest('https://api.github.com/repos/Disabled-Coding/dc-adminmenu/releases/latest', function(_, resultData, _)
-        if not resultData then print('Failed to check for updates') return end
-        local result = json.decode(resultData)
-        if GetResourceMetadata(GetCurrentResourceName(), 'version') ~= result.tag_name then
-            print('New version of '..GetCurrentResourceName()..' is available!')
-        end
-    end)
-end)
